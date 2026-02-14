@@ -1,5 +1,3 @@
-# Will-you-be-my-valantine
-A Valentine's Day confession page
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,12 +19,14 @@ A Valentine's Day confession page
 
     .container {
         position: relative;
+        width: 100%;
+        height: 100%;
     }
 
     h1 {
         font-size: 2.5rem;
         color: #fff;
-        margin-bottom: 40px;
+        margin-top: 80px;
     }
 
     button {
@@ -36,28 +36,27 @@ A Valentine's Day confession page
         border-radius: 30px;
         cursor: pointer;
         transition: 0.3s;
-        margin: 10px;
         position: absolute;
     }
 
     #yesBtn {
         background-color: #ff4d6d;
         color: white;
-        left: 50%;
-        transform: translateX(-120%);
+        left: 40%;
+        top: 50%;
     }
 
     #noBtn {
         background-color: #555;
         color: white;
-        left: 50%;
-        transform: translateX(20%);
+        left: 55%;
+        top: 50%;
     }
 
     .message {
         font-size: 2rem;
         color: white;
-        margin-top: 80px;
+        margin-top: 40px;
         display: none;
     }
 </style>
@@ -79,11 +78,16 @@ A Valentine's Day confession page
     const message = document.getElementById("loveMessage");
 
     function moveButton() {
-        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        const padding = 20;
+
+        const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+        const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
         noBtn.style.left = x + "px";
         noBtn.style.top = y + "px";
-        noBtn.style.transform = "none";
     }
 
     noBtn.addEventListener("mouseover", moveButton);
